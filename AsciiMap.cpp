@@ -6,14 +6,14 @@ AsciiMap::AsciiMap(int width, int height)
 
 void AsciiMap::set_cell(int x, int y, char c)
 {
-    if (x < map_width && y < map_height) {
+    if (x < map_width && x >= 0 && y < map_height && y >= 0) {
         map_data[y * map_width + x] = c;
     }
 }
 
 char AsciiMap::get_cell(int x, int y) const
 {
-    if (x < map_width && y < map_height) {
+    if (x < map_width && x >= 0 && y < map_height && y >= 0) {
         return map_data[y * map_width + x];
     }
     return (' ');
