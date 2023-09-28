@@ -49,19 +49,23 @@ void draw_x(AsciiMapClip &clip)
 
 int main(void)
 {
-    AsciiMap     map{11, 11};
-    AsciiMapClip TopLeft(map), TopRight(map), TopCenter(map);
+    try {
+        AsciiMap     map{11, 11};
+        AsciiMapClip TopLeft(map), TopRight(map), TopCenter(map);
 
-    TopCenter.set_origin(4, 0);
-    TopCenter.set_size(3, 3);
-    TopLeft.set_origin(0, 0);
-    TopLeft.set_size(3, 3);
+        TopCenter.set_origin(4, 0);
+        TopCenter.set_size(3, 3);
+        TopLeft.set_origin(0, 0);
+        TopLeft.set_size(3, 3);
 
-    mk_line(map, 3);
-    mk_line(map, 7);
-    mk_col(map, 3);
-    mk_col(map, 7);
-    draw_o(TopCenter);
-    draw_x(TopLeft);
-    map.to_stream(std::cout);
+        mk_line(map, 3);
+        mk_line(map, 7);
+        mk_col(map, 3);
+        mk_col(map, 7);
+        draw_o(TopCenter);
+        draw_x(TopLeft);
+        map.to_stream(std::cout);
+    } catch (std::out_of_range &err) {
+        std::cerr << "0Error:" << err.what() << std::endl;
+    }
 }

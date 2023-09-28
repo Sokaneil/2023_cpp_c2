@@ -31,11 +31,15 @@ void mk_col(AsciiMap &map, unsigned int x)
 
 int main(void)
 {
-    AsciiMap map{11, 11};
+    try {
+        AsciiMap map{11, 11};
 
-    mk_line(map, 3);
-    mk_line(map, 7);
-    mk_col(map, 3);
-    mk_col(map, 7);
-    map.to_stream(std::cout);
+        mk_line(map, 3);
+        mk_line(map, 7);
+        mk_col(map, 3);
+        mk_col(map, 7);
+        map.to_stream(std::cout);
+    } catch (std::out_of_range &err) {
+        std::cerr << "Error:" << err.what() << std::endl;
+    }
 }

@@ -6,6 +6,9 @@ AsciiMap::AsciiMap(unsigned int width, unsigned int height)
 
 void AsciiMap::set_cell(unsigned int x, unsigned int y, char c)
 {
+    if (x >= map_width || x <= 0 || y >= map_height || y <= 0) {
+        throw std::out_of_range("Out of Possible range\n");
+    }
     if (x < map_width && x >= 0 && y < map_height && y >= 0) {
         map_data[y * map_width + x] = c;
     }
@@ -13,6 +16,9 @@ void AsciiMap::set_cell(unsigned int x, unsigned int y, char c)
 
 char AsciiMap::get_cell(unsigned int x, unsigned int y) const
 {
+    if (x >= map_width || x <= 0 || y >= map_height || y <= 0) {
+        throw std::out_of_range("Out of Possible range\n");
+    }
     if (x < map_width && x >= 0 && y < map_height && y >= 0) {
         return map_data[y * map_width + x];
     }
