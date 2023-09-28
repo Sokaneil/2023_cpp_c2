@@ -31,7 +31,7 @@ void AsciiMapClip::set_cell(unsigned int x, unsigned int y, char character)
     }
 }
 
-char AsciiMapClip::get_cell(unsigned int x, unsigned int y)
+char AsciiMapClip::get_cell(unsigned int x, unsigned int y) const
 {
     if (x < _width && x >= 0 && y < _height && y >= 0) {
         return (map_ref.get_cell(origin_x + x, origin_y + y));

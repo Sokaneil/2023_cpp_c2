@@ -14,7 +14,7 @@ private:
 public:
     AsciiMapClip(AsciiMap &map);
     void set_cell(unsigned int x, unsigned int y, char c);
-    char get_cell(unsigned int x, unsigned int y);
+    char get_cell(unsigned int x, unsigned int y) const;
     void set_origin(unsigned int x, unsigned int y);
     void set_size(unsigned int width, unsigned int height);
 };
