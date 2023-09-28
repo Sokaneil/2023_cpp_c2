@@ -5,11 +5,11 @@
 
 class AsciiMapClip {
 private:
-    AsciiMap &map_ref;
-    unsigned int       origin_x;
-    unsigned int       origin_y;
-    unsigned int       _width;
-    unsigned int       _height;
+    AsciiMap    &map_ref;
+    unsigned int origin_x;
+    unsigned int origin_y;
+    unsigned int _width;
+    unsigned int _height;
 
 public:
     AsciiMapClip(AsciiMap &map);
