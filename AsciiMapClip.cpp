@@ -13,6 +13,8 @@ void AsciiMapClip::set_origin(unsigned int x, unsigned int y)
     if (x < map_ref.width() && y < map_ref.height()) {
         origin_x = x;
         origin_y = y;
+    } else {
+        throw std::out_of_range("Out of Possible range");
     }
 }
 
@@ -21,13 +23,15 @@ void AsciiMapClip::set_size(unsigned int width, unsigned int height)
     if (width > 0 && height > 0) {
         _width  = width;
         _height = height;
+    } else {
+        throw std::out_of_range("Out of Possible range");
     }
 }
 
 void AsciiMapClip::set_cell(unsigned int x, unsigned int y, char character)
 {
-    if (x >= _width || x <= 0 || y >= _height || y <= 0) {
-        throw std::out_of_range("Out of Possible range\n");
+    if (x >= _width || x < 0 || y >= _height || y < 0) {
+        throw std::out_of_range("Out of Possible range");
     }
     if (x < _width && x >= 0 && y < _height && y >= 0) {
         map_ref.set_cell(origin_x + x, origin_y + y, character);
@@ -36,8 +40,8 @@ void AsciiMapClip::set_cell(unsigned int x, unsigned int y, char character)
 
 char AsciiMapClip::get_cell(unsigned int x, unsigned int y) const
 {
-    if (x >= _width || x <= 0 || y >= _height || y <= 0) {
-        throw std::out_of_range("Out of Possible range\n");
+    if (x >= _width || x < 0 || y >= _height || y < 0) {
+        throw std::out_of_range("Out of Possible range");
     }
     if (x < _width && x >= 0 && y < _height && y >= 0) {
         return (map_ref.get_cell(origin_x + x, origin_y + y));

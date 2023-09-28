@@ -57,11 +57,14 @@ int main(void)
         TopCenter.set_size(3, 3);
         TopLeft.set_origin(0, 0);
         TopLeft.set_size(3, 3);
+        TopRight.set_origin(8, 0);
+        TopRight.set_size(3, 3);
 
         mk_line(map, 3);
         mk_line(map, 7);
         mk_col(map, 3);
         mk_col(map, 7);
+        draw_o(TopRight);
         draw_o(TopCenter);
         draw_x(TopLeft);
         map.to_stream(std::cout);
