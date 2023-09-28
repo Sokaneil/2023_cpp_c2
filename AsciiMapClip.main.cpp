@@ -69,6 +69,6 @@ int main(void)
         draw_x(TopLeft);
         map.to_stream(std::cout);
     } catch (std::out_of_range &err) {
-        std::cerr << "0Error:" << err.what() << std::endl;
+        std::cerr << "Error:" << err.what() << std::endl;
     }
 }
