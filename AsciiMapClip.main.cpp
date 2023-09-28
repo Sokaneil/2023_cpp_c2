@@ -1,7 +1,6 @@
-#include <iostream>
 #include "AsciiMapClip.hpp"
+#include <iostream>
 #include "AsciiMap.hpp"
-
 
 void mk_line(AsciiMap &map, unsigned int y)
 {
@@ -16,7 +15,6 @@ void mk_line(AsciiMap &map, unsigned int y)
         i += 1;
     }
 }
-
 
 void mk_col(AsciiMap &map, unsigned int x)
 {
@@ -34,10 +32,10 @@ void mk_col(AsciiMap &map, unsigned int x)
 
 void draw_o(AsciiMapClip &clip)
 {
-    clip.set_cell(1,0,'-');
-    clip.set_cell(0,1,'|');
-    clip.set_cell(2,1,'|');
-    clip.set_cell(1,2,'-');
+    clip.set_cell(1, 0, '-');
+    clip.set_cell(0, 1, '|');
+    clip.set_cell(2, 1, '|');
+    clip.set_cell(1, 2, '-');
 }
 
 void draw_x(AsciiMapClip &clip)
@@ -51,19 +49,19 @@ void draw_x(AsciiMapClip &clip)
 
 int main(void)
 {
-    AsciiMap map{11, 11};
+    AsciiMap     map{11, 11};
     AsciiMapClip TopLeft(map), TopRight(map), TopCenter(map);
 
     TopCenter.set_origin(4, 0);
     TopCenter.set_size(3, 3);
-    TopRight.set_origin(8, 0);
-    TopRight.set_size(3, 3);
+    TopLeft.set_origin(0, 0);
+    TopLeft.set_size(3, 3);
 
     mk_line(map, 3);
     mk_line(map, 7);
     mk_col(map, 3);
     mk_col(map, 7);
     draw_o(TopCenter);
-    draw_x(TopRight);
+    draw_x(TopLeft);
     map.to_stream(std::cout);
 }

@@ -8,7 +8,7 @@ AsciiMapClip::AsciiMapClip(AsciiMap &map)
       _height(map.height())
 {}
 
-void AsciiMapClip::set_origin(int x, int y)
+void AsciiMapClip::set_origin(unsigned int x, unsigned int y)
 {
     if (x < map_ref.width() && y < map_ref.height()) {
         origin_x = x;
@@ -16,7 +16,7 @@ void AsciiMapClip::set_origin(int x, int y)
     }
 }
 
-void AsciiMapClip::set_size(int width, int height)
+void AsciiMapClip::set_size(unsigned int width, unsigned int height)
 {
     if (width > 0 && height > 0) {
         _width  = width;
@@ -24,14 +24,14 @@ void AsciiMapClip::set_size(int width, int height)
     }
 }
 
-void AsciiMapClip::set_cell(int x, int y, char character)
+void AsciiMapClip::set_cell(unsigned int x, unsigned int y, char character)
 {
     if (x < _width && x >= 0 && y < _height && y >= 0) {
         map_ref.set_cell(origin_x + x, origin_y + y, character);
     }
 }
 
-char AsciiMapClip::get_cell(int x, int y)
+char AsciiMapClip::get_cell(unsigned int x, unsigned int y)
 {
     if (x < _width && x >= 0 && y < _height && y >= 0) {
         return (map_ref.get_cell(origin_x + x, origin_y + y));

@@ -1,17 +1,17 @@
 #include "AsciiMap.hpp"
 
-AsciiMap::AsciiMap(int width, int height)
+AsciiMap::AsciiMap(unsigned int width, unsigned int height)
     : map_width(width), map_height(height), map_data(width * height, ' ')
 {}
 
-void AsciiMap::set_cell(int x, int y, char c)
+void AsciiMap::set_cell(unsigned int x, unsigned int y, char c)
 {
     if (x < map_width && x >= 0 && y < map_height && y >= 0) {
         map_data[y * map_width + x] = c;
     }
 }
 
-char AsciiMap::get_cell(int x, int y) const
+char AsciiMap::get_cell(unsigned int x, unsigned int y) const
 {
     if (x < map_width && x >= 0 && y < map_height && y >= 0) {
         return map_data[y * map_width + x];
@@ -21,9 +21,9 @@ char AsciiMap::get_cell(int x, int y) const
 
 void AsciiMap::to_stream(std::ostream &output) const
 {
-    int i = 0;
+    unsigned int i = 0;
     while (i < map_height) {
-        int j = 0;
+        unsigned int j = 0;
         while (j < map_width) {
             output << map_data[i * map_width + j];
             j += 1;
@@ -33,12 +33,12 @@ void AsciiMap::to_stream(std::ostream &output) const
     }
 }
 
-int AsciiMap::width() const
+unsigned int AsciiMap::width() const
 {
     return (map_width);
 }
 
-int AsciiMap::height() const
+unsigned int AsciiMap::height() const
 {
     return (map_height);
 }
