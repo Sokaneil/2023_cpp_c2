@@ -6,20 +6,20 @@ AsciiMap::AsciiMap(unsigned int width, unsigned int height)
 
 void AsciiMap::set_cell(unsigned int x, unsigned int y, char c)
 {
-    if (x >= map_width || x < 0 || y >= map_height || y < 0) {
+    if (x >= map_width || y >= map_height) {
         throw std::out_of_range("Out of Possible range");
     }
-    if (x < map_width && x >= 0 && y < map_height && y >= 0) {
+    if (x < map_width && y < map_height) {
         map_data[y * map_width + x] = c;
     }
 }
 
 char AsciiMap::get_cell(unsigned int x, unsigned int y) const
 {
-    if (x >= map_width || x < 0 || y >= map_height || y < 0) {
+    if (x >= map_width || y >= map_height) {
         throw std::out_of_range("Out of Possible range");
     }
-    if (x < map_width && x >= 0 && y < map_height && y >= 0) {
+    if (x < map_width && y < map_height) {
         return map_data[y * map_width + x];
     }
     return (' ');

@@ -30,20 +30,20 @@ void AsciiMapClip::set_size(unsigned int width, unsigned int height)
 
 void AsciiMapClip::set_cell(unsigned int x, unsigned int y, char character)
 {
-    if (x >= _width || x < 0 || y >= _height || y < 0) {
+    if (x >= _width || y >= _height) {
         throw std::out_of_range("Out of Possible range");
     }
-    if (x < _width && x >= 0 && y < _height && y >= 0) {
+    if (x < _width && y < _height) {
         map_ref.set_cell(origin_x + x, origin_y + y, character);
     }
 }
 
 char AsciiMapClip::get_cell(unsigned int x, unsigned int y) const
 {
-    if (x >= _width || x < 0 || y >= _height || y < 0) {
+    if (x >= _width || y >= _height) {
         throw std::out_of_range("Out of Possible range");
     }
-    if (x < _width && x >= 0 && y < _height && y >= 0) {
+    if (x < _width && y < _height) {
         return (map_ref.get_cell(origin_x + x, origin_y + y));
     }
     return (' ');
